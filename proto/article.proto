@@ -1,0 +1,33 @@
+syntax = "proto3";
+package proto;
+
+option go_package="proto;proto";
+
+message CreateArticleReq{
+string Name=1;
+string PublisherName = 2;
+}
+
+message CreateArticleResp{
+string ID=1;
+string Name=2;
+string PublisherName=3;
+string Error=4;
+}
+
+message GetArticleReq{
+    string Id = 1;
+}
+message GetArticleResp{
+string ID=1;
+string Name=2;
+string PublisherName=3;
+string Error=4;
+}
+
+service ArticleService{
+    rpc CreateArticle(CreateArticleReq) returns(CreateArticleResp);
+    rpc GetArticle(GetArticleReq) returns(GetArticleResp);
+}
+
+
